@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(e){
+
+        var html = '<p /><div>Task : <input type="text" name="task[]" id="childtask">count : <input type="text" name="count[]" id="childcount">user : <input type="text" name="user[]" id="childuser"><a href="#" id="remove"> X </a></div>';
+        // add
+        $("#add").click(function(e){
+        //remove
+        $("#container").on('click','#remove',function(e){
+        $(this).parent('div').remove();
+        });
+
+        $("#container").append(html);
+
+        });
+
+
+
+
+        });
+    </script>
+</head>
+<body>
+
+<form action="{{ url_for('test') }}" method="post">
+    <div id="container">
+        Task : <input type="text" name="task[]" id="task">
+        count : <input type="text" name="count[]" id="count">
+        user : <input type="text" name="user[]" id="user">
+        <a href="#" id="add"> Add More </a>
+    </div>
+    <p />
+    <input type="submit" name="submit">
+
+</form>
+</body>
+</html>

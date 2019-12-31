@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>Carousel Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/carousel.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/bootstrap-datetimepicker.css') }}" rel="stylesheet">
+
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Content Creating Task Manager</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav nav mr-auto">
+                <li class="dropdown nav-item dropdown ">
+                    <a href="{{ url_for('task') }}" class="nav-link" role="button"
+                       aria-haspopup="true" aria-expanded="false" >Tasks <span class="caret"></span></a>
+                    <!--<ul class="dropdown-menu">-->
+                        <!--<li><a href="#">University Introduction</a></li>-->
+                        <!--<li><a href="#">Introducing Admission Unit</a></li>-->
+                        <!--<li><a href="#">Introducing Farsi Learning Center</a></li>-->
+                    <!--</ul>-->
+                </li>
+                <li class="dropdown nav-item dropdown">
+                    <a href="#" class="dropdown-toggle nav-link drop" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Admission Information <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Admission Requirements</a></li>
+                        <li><a href="#">Admission Schedule</a></li>
+                        <li><a href="#">Admission Steps</a></li>
+                        <li><a href="#">Educational Fees</a></li>
+                        <li><a href="#">Majors</a></li>
+                        <li><a href="#">Registration Documents</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown nav-item dropdown">
+                    <a href="#" class="dropdown-toggle nav-link drop" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Consular Affairs<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Introducing Consulate Unit</a></li>
+                        <li><a href="#">Consular Services</a></li>
+                        <li><a href="#">Consular Steps</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown nav-item dropdown">
+                    <a href="#" class="dropdown-toggle nav-link drop" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Requests<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Primary Acceptance Certificate</a></li>
+                        <li><a href="#">Canceling Education</a></li>
+                        <li><a href="#">Other</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">News</a>
+                </li>
+
+                <li class="nav-item">
+                       {% if session['logged_in'] %}
+                    <li class="nav-item">
+                        <a class="nav-link " href={{url_for('logout')}}>Logout </a>
+                    </li>
+                {% endif %}
+
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</header>
+<main role="main">
+<!--{% with messages = get_flashed_messages(with_categories=true) %}-->
+        <!--{% if messages %}-->
+            <!--{% for category,message in messages %}-->
+                <!--<div class="alert alert-{{ category }}">-->
+                    <!--{{ message }}-->
+                <!--</div>-->
+            <!--{% endfor %}-->
+        <!--{% endif %}-->
+    <!--{% endwith %}-->
+    <!--{% block content %} {% endblock %}-->
+    <!-- FOOTER -->
+    <footer class="container">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2017-2018 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+</main>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+
+<script src="{{ url_for('static', filename='js/jquery-slim.min.js') }}" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/popper.min.js') }}" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/holder.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+<script src="{{ url_for('static', filename='js/moment-with-locales.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap-datepicker.min.js') }}"></script>
+
+<style>
+    .container {
+    margin-top: 50px !important;
+}
+</style>
+
+</body>
+
+</html>
+

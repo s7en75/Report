@@ -1,0 +1,81 @@
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<form action="{{ url_for('assign') }}" method="post">
+<div class="panel panel-default">
+  <div class="panel-heading">Content Creation Task Manager </div>
+  <div class="panel-heading">Create Task And Assign</div>
+  <div class="panel-body">
+
+  <div id="education_fields">
+
+
+       <div class="col-sm-4 nopadding">
+      <div class="input-group">
+      <select class="form-control" id="task" name="task[]">
+        {% for ts in task %}
+        <option value={{ts['id']}}>{{ts['name']}}</option>
+         {% endfor %}
+
+      </select>
+    </div>
+</div>
+
+<div class="col-sm-3 nopadding">
+  <div class="form-group">
+    <input type="text" class="form-control" id="desc" name="desc[]" placeholder="Description">
+  </div>
+</div>
+
+
+<div class="col-sm-2 nopadding">
+  <div class="form-group">
+    <input type="number" class="form-control" id="count" name="count[]" placeholder="count">
+  </div>
+</div>
+
+
+
+<div class="col-sm-2 nopadding">
+  <div class="form-group">
+    <div class="input-group">
+
+      <select class="form-control" id="user" name="user[]">
+        {% for us in user %}
+        <option value={{us['id']}}>{{us['name']}}</option>
+         {% endfor %}
+
+      </select>
+      <div class="input-group-btn">
+        <button class="btn btn-success" type="button"  onclick="education_fields();"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+    <div class="clear"></div>
+    <button name="submit" type="submit" class="btn btn-primary mb-2">Confirm identity</button>
+  </div>
+</div>
+</form>
+<script>
+    var room = 1;
+function education_fields() {
+
+    room++;
+    var objTo = document.getElementById('education_fields')
+    var divtest = document.createElement("div");divtest.setAttribute("class", "form-group removeclass"+room);
+    var rdiv = 'removeclass'+room;
+    divtest.innerHTML = '<div class="col-sm-4 nopadding"><div class="input-group"><select class="form-control" id="task" name="task[]">{% for ts in task %}<option value={{ts['id']}}>{{ts['name']}}</option>{% endfor %}</select></div></div><div class="col-sm-3 nopadding"><div class="form-group"><input type="text" class="form-control" id="desc" name="desc[]" placeholder="desc"></div></div><div class="col-sm-2 nopadding"><div class="form-group"><input type="number" class="form-control" id="count" name="count[]" placeholder="count"></div></div><div class="col-sm-2 nopadding"><div class="form-group"><div class="input-group"><select class="form-control" id="user" name="user[]">{% for us in user %}<option value={{us['id']}}>{{us['name']}}</option>{% endfor %}</select><div class="input-group-btn"> <button class="btn btn-danger" type="button" onclick="remove_education_fields('+ room +');"> <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> </button></div</div></div></div></div><div class="clear"></div>';
+
+    objTo.appendChild(divtest)
+}
+   function remove_education_fields(rid) {
+	   $('.removeclass'+rid).remove();
+   }
+</script>
